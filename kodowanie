@@ -1,0 +1,17 @@
+
+import base64
+
+def code(tekst):
+    # Konwertowanie tekstu na bajty
+    bajts = tekst.encode('utf-8')
+
+    # Szyfrowanie bajtów za pomocą Base64
+    encrypted_text = base64.b64encode(bajts)
+
+    # Zwracanie zaszyfrowany tekst jako string
+    return encrypted_text.decode('utf-8')
+
+# Przykład
+plain_text = "Udalo sie"
+en_text = code(plain_text)
+print(en_text)
