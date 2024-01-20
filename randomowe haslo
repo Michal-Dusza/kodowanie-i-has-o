@@ -1,0 +1,31 @@
+import random
+import string
+
+def generator_hasla():
+    # Zdefiniuj zestaw znaków dla warunków
+    capital_letter = string.ascii_uppercase
+    lower_letter = string.ascii_lowercase
+    number = string.digits
+    special_char = string.punctuation
+
+    # Połącz wszystkie zestawy znaków w jedną liste
+    all_char = capital_letter + lower_letter + number + special_char
+
+    # Wygeneruj hasło, spełniające warunki (conajmniej po jednej wielkiej literze, małej literze, jedna cyfra i jeden znak secjalny oraz dodatkowe 4 losowe znaki z wymioenionych)
+    password = (
+        random.choice(capital_letter)
+        + random.choice(lower_letter)
+        + random.choice(number)
+        + random.choice(special_char)
+        + ''.join(random.choice(all_char) for _ in range(4))
+    )
+
+    # Przetasuj hasło, aby zmieszać kolejność znaków
+    password = ''.join(random.sample(password, len(password)))
+
+    return password
+
+
+# Przykład użycia
+
+print("Wygenerowane bezpieczne hasło:", generator_hasla())
